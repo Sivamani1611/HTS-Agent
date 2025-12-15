@@ -1,0 +1,274 @@
+================================================================================
+                    HTS AI AGENT - COMMANDS REFERENCE GUIDE
+================================================================================
+
+This file contains all the commands you can use to run the HTS AI Agent project.
+Choose the method that best suits your needs.
+
+================================================================================
+                            QUICK START COMMANDS
+================================================================================
+
+# RECOMMENDED: Simple Launcher (Interactive Menu)
+python launch_hts.py
+
+# Quick Status Check
+python launch_hts.py --status
+
+# Quick Help
+python launch_hts.py --help
+
+================================================================================
+                            WEB APPLICATIONS
+================================================================================
+
+# Method 1: Using Simple Launcher (RECOMMENDED)
+python launch_hts.py --web ultimate      # Launch Ultimate Web App (full features)
+python launch_hts.py --web working       # Launch Working Web App (stable backup)
+
+# Method 2: Direct Streamlit Launch
+streamlit run app_ultimate.py            # Ultimate Web App (70KB, 1876 lines)
+streamlit run app_working.py             # Working Web App (24KB, 558 lines)
+
+# Method 3: Using Project Manager
+python manage_project.py --run-app ultimate
+python manage_project.py --run-app working
+
+================================================================================
+                            CLI APPLICATIONS
+================================================================================
+
+# Method 1: Using Simple Launcher (RECOMMENDED)
+python launch_hts.py --cli enhanced      # Enhanced CLI with advanced features
+python launch_hts.py --cli interactive   # Interactive CLI with chat interface
+
+# Method 2: Direct CLI Launch
+python main_fixed.py --chat              # Enhanced CLI - Interactive mode
+python cli_simple.py                     # Interactive CLI - Chat interface
+
+# Method 3: Using Project Manager
+python manage_project.py --run-cli enhanced
+python manage_project.py --run-cli interactive
+
+================================================================================
+                        ENHANCED CLI FEATURES
+================================================================================
+
+# Basic Operations
+python main_fixed.py --help              # Show all available options
+python main_fixed.py --list              # List all HTS codes
+python main_fixed.py --stats             # Show database statistics
+
+# Questions & Queries
+python main_fixed.py --query "What is GSP?"                    # Ask a question
+python main_fixed.py --chat                                    # Interactive chat mode
+
+# Duty Calculations
+python main_fixed.py --calc 0101.30.00.00 10000               # Basic calculation
+python main_fixed.py --calc 0101.30.00.00 10000 500 100       # With freight & insurance
+
+# Advanced Search & Analysis
+python main_fixed.py --search "cattle"                         # Search HTS codes
+python main_fixed.py --search "beef"                           # Search by keyword
+python main_fixed.py --compare 0101.30.00.00 0102.21.00.00    # Compare duty rates
+
+# Batch Processing
+python main_fixed.py --template                                # Generate CSV template
+python main_fixed.py --batch mydata.csv                        # Process batch file
+python main_fixed.py --batch hts_batch_template.csv            # Process template
+
+# Data Export
+python main_fixed.py --export json                             # Export as JSON
+python main_fixed.py --export csv                              # Export as CSV
+
+================================================================================
+                        INTERACTIVE CLI COMMANDS
+================================================================================
+
+# Start Interactive Mode
+python main_fixed.py --chat
+python cli_simple.py
+
+# Commands Available in Interactive Mode:
+help                                      # Show available commands
+list                                      # List HTS codes
+stats                                     # Show statistics
+search cattle                             # Search for products
+compare 0101.30.00.00 0102.21.00.00      # Compare rates
+calc 0101.30.00.00 10000 500 100         # Calculate duty
+template                                  # Generate CSV template
+batch myfile.csv                         # Process batch calculations
+export json                              # Export database as JSON
+export csv                               # Export database as CSV
+exit                                      # Exit interactive mode
+
+================================================================================
+                        PROJECT MANAGEMENT
+================================================================================
+
+# Simple Launcher Commands
+python launch_hts.py                     # Interactive menu
+python launch_hts.py --status            # Project status
+python launch_hts.py --demo              # Quick demonstration
+python launch_hts.py --stop              # Stop all applications
+
+# Project Manager Commands
+python manage_project.py                 # Interactive management console
+python manage_project.py --setup         # Set up environment
+python manage_project.py --status        # Show project status
+python manage_project.py --test          # Run tests
+python manage_project.py --clean         # Clean temporary files
+python manage_project.py --stop          # Stop all running apps
+
+================================================================================
+                        ENVIRONMENT SETUP
+================================================================================
+
+# Initial Setup (First Time)
+python -m venv hts_agent_env              # Create virtual environment
+hts_agent_env\Scripts\activate            # Activate environment (Windows)
+pip install -r requirements.txt           # Install dependencies
+
+# Daily Usage
+hts_agent_env\Scripts\activate            # Activate environment
+python launch_hts.py                      # Start using the platform
+
+# Check Environment
+python launch_hts.py --status             # Check installation status
+python manage_project.py --status         # Detailed environment check
+
+================================================================================
+                        SAMPLE USAGE WORKFLOWS
+================================================================================
+
+# Workflow 1: Quick Duty Calculation
+python main_fixed.py --calc 0101.30.00.00 10000 500 100
+
+# Workflow 2: Search and Compare Products
+python main_fixed.py --search "cattle"
+python main_fixed.py --compare 0101.30.00.00 0102.21.00.00
+
+# Workflow 3: Batch Processing
+python main_fixed.py --template          # Generate template
+# [Edit the CSV file with your data]
+python main_fixed.py --batch hts_batch_template.csv
+
+# Workflow 4: Interactive Session
+python main_fixed.py --chat
+> search beef
+> stats
+> calc 0201.10.00.00 15000 800 150
+> export json
+> exit
+
+# Workflow 5: Web Application Usage
+python launch_hts.py --web ultimate      # Launch web app
+# Open browser to http://localhost:8501
+
+================================================================================
+                        TROUBLESHOOTING COMMANDS
+================================================================================
+
+# Stop All Running Applications
+python launch_hts.py --stop
+python manage_project.py --stop
+
+# Check What's Running
+tasklist | findstr streamlit             # Windows: Check Streamlit processes
+tasklist | findstr python                # Windows: Check Python processes
+
+# Environment Diagnostics
+python launch_hts.py --status            # Check application status
+python manage_project.py --status        # Detailed system check
+python --version                         # Check Python version
+pip list                                  # Check installed packages
+
+# Clean Start
+python manage_project.py --stop          # Stop everything
+python manage_project.py --clean         # Clean temporary files
+python launch_hts.py --status            # Verify clean state
+
+================================================================================
+                        FILE STRUCTURE REFERENCE
+================================================================================
+
+# Main Applications
+app_ultimate.py                           # Ultimate Web App (70KB, 1876 lines)
+app_working.py                            # Working Web App (24KB, 558 lines)
+main_fixed.py                             # Enhanced CLI (19KB, 485 lines)
+cli_simple.py                             # Interactive CLI (21KB, 501 lines)
+
+# Management Tools
+launch_hts.py                             # Simple Launcher (11KB, 285 lines)
+manage_project.py                         # Project Manager (16KB, 439 lines)
+
+# Generated Files
+hts_batch_template.csv                    # CSV template for batch processing
+hts_database_YYYYMMDD_HHMMSS.json        # Exported database (JSON format)
+hts_database_YYYYMMDD_HHMMSS.csv         # Exported database (CSV format)
+
+================================================================================
+                        ADVANCED USAGE EXAMPLES
+================================================================================
+
+# Comprehensive Analysis Workflow
+python main_fixed.py --stats                                    # Get overview
+python main_fixed.py --search "meat"                            # Find meat products
+python main_fixed.py --compare 0201.10.00.00 0201.20.00.00     # Compare beef cuts
+python main_fixed.py --export json                              # Export findings
+
+# Batch Processing Workflow
+python main_fixed.py --template                                 # Create template
+# Edit hts_batch_template.csv with your products
+python main_fixed.py --batch hts_batch_template.csv             # Process batch
+# Results saved as hts_batch_template_results.csv
+
+# Professional Reporting Workflow
+python launch_hts.py --web ultimate                             # Launch web app
+# Use web interface for:
+# - Dashboard overview
+# - Professional calculations
+# - Advanced analytics
+# - Report generation
+
+================================================================================
+                        QUICK REFERENCE SUMMARY
+================================================================================
+
+Most Common Commands:
+python launch_hts.py                     # Interactive launcher menu
+python launch_hts.py --web ultimate      # Launch main web app
+python main_fixed.py --chat              # Interactive CLI
+python main_fixed.py --stats             # Quick statistics
+python launch_hts.py --status            # Check project status
+
+Web Application URLs:
+http://localhost:8501                    # Ultimate Web App
+http://localhost:8502                    # Working Web App (if running simultaneously)
+
+Help Commands:
+python launch_hts.py --help              # Launcher help
+python main_fixed.py --help              # Enhanced CLI help
+python manage_project.py --help          # Project manager help
+
+================================================================================
+                        SUPPORT & DOCUMENTATION
+================================================================================
+
+Documentation Files:
+README.md                                 # Main project documentation
+PROJECT_CLEANUP_SUMMARY.md               # Cleanup and enhancement summary
+FINAL_STATUS.md                           # Comprehensive status report
+ADDITIONAL_CLEANUP_SUMMARY.md            # Additional cleanup documentation
+
+Online Help:
+# In interactive mode, type 'help' for available commands
+# Use --help flag with any command for detailed usage information
+
+================================================================================
+
+Last Updated: August 10, 2025
+HTS AI Agent - Enhanced Trade Intelligence Platform
+Status: ✅ OPTIMIZED | Quality: 🏆 PROFESSIONAL | Ready: 🚀 PRODUCTION
+
+================================================================================ 
